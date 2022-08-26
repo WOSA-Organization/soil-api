@@ -36,6 +36,13 @@ def air():
         }
     response = requests.request("GET", url, headers=headers, params=querystring)
     #print(response.text)
-    return render_template("success_s.html")
+    r = response.json()
+    lab = r.get("data")
+    temp = list(lab[0].values())
+    values = temp[1:]
+    print(type(values))
+    stemp = values[0]
+    smoist = values[1]
+    return render_template("success_s.html", stemp = stemp, smoist = smoist)
 if __name__ == "__main__":
     app.run(debug=True)
