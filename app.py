@@ -25,7 +25,7 @@ def home():
     return render_template('main_s.html')
 
 @app.route("/success", methods=["GET", "POST"])
-def air():
+def soil():
     lat = request.form['lat']
     lng = request.form['long']
     url = "https://api.ambeedata.com/soil/latest/by-lat-lng"
