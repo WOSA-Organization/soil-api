@@ -8,17 +8,6 @@ import plotly.express as px
 
 
 app = Flask(__name__,template_folder='templates')
-
-def air_graph(labels,values):
-    fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3)])
-    #fig.show()
-    plot_air = json.dumps(fig, cls=plotly.utils.PlotlyJSONEncoder)
-    return plot_air
-
-#l = ["CO","NO2","OZONE","PM10","PM25","SO2"]3
-#v = [1.453,25.291,8.032,52.24,21.943,1.898]
-#air_graph(l,v)
-
 # ROUTES
 @app.route('/')
 def home():
